@@ -1,3 +1,8 @@
+#title {
+  text-align: center;
+  font-size: 4rem;
+  text-shadow: 0 0 16px #333;
+}
 body {
   background-color: #eee;
 }
@@ -26,7 +31,9 @@ body {
   animation: zoomin 1s ease;
   max-width: 80%;
   max-height: 70%;
-  align-items: center;
+  /* align-items: center; */
+  display: grid;
+  margin-left: 22%;
 }
 .byebye {
   opacity: 0;
