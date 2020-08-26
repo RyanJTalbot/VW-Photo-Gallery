@@ -9,7 +9,7 @@ var resizeAll = function () {
     var gap = getVal(gallery, 'grid-row-gap');
     gallery.querySelectorAll('.gallery-item').forEach(function (item) {
         var el = item;
-        el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+        el.style.gridRowEnd = "span" + Math.ceil((getHeight(item) + gap) / (altura + gap));
     });
 };
 
