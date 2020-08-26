@@ -1,100 +1,151 @@
 body {
-  background-color:rgb(0, 0, 0);
+  background-color: #eee;
 }
-#title {
-  text-align: center;
-  margin-bottom: 5rem;
-  margin-top: 2rem;
-  font-size: 6rem;
-  color: rgb(23, 23, 23);
-  text-shadow: 5px 5px 13px rgb(28, 28, 28);
+.hello {
+  opacity: 1 !important;
 }
-.container {
+.full {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
-ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-li{
-  list-style: none;
-  height: 30vh;
-  flex-grow: 1;
-  position: relative;
-  margin-left: 8px;
-  margin-top: 8px;
+.full .content {
+  background-color: rgba(0,0,0,0.75) !important;
+  height: 100%;
+  width: 100%;
+  display: grid;
 }
 
-li:hover {
-  opacity: 1;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  position: relative;
-  width: 5%;
-  height: 5%;
-  transition: .9s ease;
-  backface-visibility: hidden;
+/* change below to fix problem with size */
+.full .content img {
+  left: 50%;
+  transform: translate3d(0, 0, 0);
+  animation: zoomin 1s ease;
+  max-width: 80%;
+  max-height: 70%;
+  align-items: center;
+}
+.byebye {
+  opacity: 0;
+}
+.byebye:hover {
+  transform: scale(0.2) !important;
+}
+.gallery {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 8px;
+}
+.gallery img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #333;
+  transition: all 1.5s ease;
+}
+.gallery img:hover {
+  box-shadow: 0 0 32px #333;
+}
+.gallery .content {
+  padding: 4px;
+}
+.gallery .gallery-item {
+  transition: grid-row-start 300ms linear;
+  transition: transform 300ms ease;
+  transition: all 0.5s ease;
   cursor: pointer;
-  z-index: initial;
-  animation: pleasework 10s infinite linear;
-  /* animation: grows 5s infinite; */
-  animation-delay: 2s;
 }
- 
-@keyframes pleasework {
-  50% {z-index: -1;}
-}
-/* @keyframes grows {
-  50% {flex-grow: 8;}
-} */
-
-li:last-child {
-/*There's no science in using "10" here. In all my testing, this delivered the best results. */
- flex-grow: 10;
+.gallery .gallery-item:hover {
+  transform: scale(1.025);
 }
 
-img {
-  max-height: 100%;
-  min-width: 100%;
-  object-fit: cover;
-  vertical-align: bottom;
-}
-
-/* ADVANCED Portrait */
-
-@media (max-aspect-ratio: 1/1) {
-  li {
-    height: 30vh;
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   }
 }
-
-/* Short screens */
-
-@media (max-height: 480px) {
-  li {
-    height: 80vh;
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
   }
 }
-
-/* Smaller screens in portrait */
-
-@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-  ul {
-    flex-direction: row;
+@-moz-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
   }
-
-  li {
-    height: auto;
-    width: 100%;
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
   }
-  img {
-    width: 100%;
-    max-height: 75vh;
-    min-width: 0;
-   }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 80%;
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 80%;
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 80%;
+    transform: rotate(0deg);
+  }
+}
+@keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 80%;
+    transform: rotate(0deg);
+  }
 }
