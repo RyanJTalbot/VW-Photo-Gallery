@@ -1,1 +1,3 @@
-need to fix image after selected
+photo gallery
+
+when resizing screen pictures disapear 
